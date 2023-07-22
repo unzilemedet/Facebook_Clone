@@ -1,0 +1,56 @@
+/**
+ * Bu kısımda, Json object mantığı ile bağımlılıklara ait Ad ve Versiyon
+ * bilgileri export ediliyor.
+ */
+ext {
+    /**
+     * Burada bağımlılıklarımıza ait versiyonları tek bir çatıda toplarayak
+     * buradan yönetilmelerini sağlıyoruz.
+     */
+    versions = [
+            springBoot          : "2.7.10",
+            springCloud         : "3.1.6",
+            lombok              : "1.18.26",
+            postgresql          : "42.6.0",
+            swagger             : "1.6.15",
+            mapstruct           : "1.5.3.Final",
+            javaJWT             : "4.4.0",
+    ]
+    /**
+     * Bağımılılkların yazımı, mevcut kullanıma ek olarak şu şekilde yazılabilir.
+     * 1. Bağımlılığım grup adı yazılı. (grupId)
+     * 2. : eklenir.
+     * 3. Bağımlılık adı. (artifactId)
+     * 4. : eklenir.
+     * 5. bağılığın versiyonu yönetim olarak eklediğimiz listeden çekilir. bu aşamade
+     * $versions.XXXXX şeklinde yazılmalıdır.
+     */
+    libs = [
+            // Spring Boot
+            springBootWeb           : "org.springframework.boot:spring-boot-starter-web:${versions.springBoot}",
+            springBootDataJpa       : "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBoot}",
+            springBootDataMongoDB   : "org.springframework.boot:spring-boot-starter-data-mongodb:${versions.springBoot}",
+            springBootDataRedis     : "org.springframework.boot:spring-boot-starter-data-redis:${versions.springBoot}",
+            springBootDataElasticsearch     : "org.springframework.boot:spring-boot-starter-data-elasticsearch:${versions.springBoot}",
+            springBootStarterSecurity       : "org.springframework.boot:spring-boot-starter-security:${versions.springBoot}",
+            springBootValidation    : "org.springframework.boot:spring-boot-starter-validation:${versions.springBoot}",
+            springBootAmqp          : "org.springframework.boot:spring-boot-starter-amqp:${versions.springBoot}",
+
+            // Spring Cloud
+            springCloudOpenFeign    : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            springCloudStarterConfig: "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
+            springCloudConfigServer : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+            springCloudConfigClient : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}",
+            springCloudGateway      : "org.springframework.cloud:spring-cloud-starter-gateway:${versions.springCloud}",
+            springCloudSleuth       : "org.springframework.cloud:spring-cloud-starter-sleuth:${versions.springCloud}",
+            springCloudZipkin       : "org.springframework.cloud:spring-cloud-sleuth-zipkin:${versions.springCloud}",
+
+            // Other
+            lombok                  : "org.projectlombok:lombok:${versions.lombok}",
+            postgresql              : "org.postgresql:postgresql:${versions.postgresql}",
+            swagger                 : "org.springdoc:springdoc-openapi-ui:${versions.swagger}",
+            mapstruct               : "org.mapstruct:mapstruct:${versions.mapstruct}",
+            mapstructProcessor      : "org.mapstruct:mapstruct-processor:${versions.mapstruct}",
+            javaJWT                 : "com.auth0:java-jwt:${versions.javaJWT}",
+    ]
+}
